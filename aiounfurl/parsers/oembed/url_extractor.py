@@ -1,5 +1,9 @@
 from collections import OrderedDict
-from urllib.parse import urlsplit, urlunsplit, urlencode, parse_qsl
+try:
+    from urllib.parse import urlsplit, urlunsplit, urlencode, parse_qsl
+except ImportError:
+    from urllib import urlencode
+    from urlparse import urlsplit, urlunsplit, parse_qsl
 
 
 class OEmbedURLExtractor(object):
